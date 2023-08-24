@@ -8,7 +8,7 @@ color("gray")translate([0,-102,14.9]) import("right_baseplate-design.stl");
 
 //include<right_baseplate.scad>
 
-joystick_block();
+//joystick_block();
 dm_right();
 /*
 
@@ -56,19 +56,19 @@ module tab(){
 module base_screws_hole(r){
   rib_height=4;
   union(){
-translate([-74, -40, 18]){
+translate([-71, -40, 18]){
   cylinder(r = r, h = rib_height); 
 translate([0,0,rib_height])sphere(r);
   }
-    translate([-37, -45, 18]){
+    translate([-40, -45, 18]){
       cylinder(r = r, h = rib_height); 
     translate([0,0,rib_height])sphere(r);
       }
-    translate([-75, 3, 18]){
+    translate([-72, 3, 18]){
       cylinder(r = r, h = rib_height); 
     translate([0,0,rib_height])sphere(r);
       }
-    translate([-28, 5, 18]){
+    translate([-28, 8, 18]){
       cylinder(r = r, h = 6); 
     translate([0,0,3])sphere(r);
       }

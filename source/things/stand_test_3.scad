@@ -11,7 +11,7 @@ short_rod_diamater = 8;
 //$fs = 0.01;
 
 module m4screw(){
-  screw_rk = 6.1 / 2;
+  screw_rk = 7 / 2;
   screw_k = 1.5;
   screw_r = 4 / 2;
 
@@ -58,8 +58,8 @@ pos_list = [
   [mid_rod, [-33, -8.4, 53], [0, 25, 0], 8, mid_rod_diamater],
   [mid_rod, [-33, 14, 53], [0, 25, 0], 7, mid_rod_diamater],
 
-//  [short_rod, [-0, -23, 34], [0, 65, 0], 7, short_rod_diamater],
-//  [short_rod, [-0, -1, 34], [0, 65, 0], 7, short_rod_diamater],
+  //[short_rod, [-0, -23, 34], [0, 65, 0], 7, short_rod_diamater],
+  [short_rod, [-0, -1, 34], [0, 65, 0], 7, short_rod_diamater],
 
 //  [short_rod, [-71, -69, 49], [0, -30, 60], 8, short_rod_diamater],
   [mid_rod, [-65, -60, 55], [0, -30, 60], 8, mid_rod_diamater],
@@ -85,8 +85,8 @@ module base(thickness){
               pos_list[1],
               pos_list[3],
               pos_list[4],
-//              pos_list[5],
-              pos_list[6],
+              pos_list[5],
+              pos_list[7],
             ]){
             lower_bracket(pos[0], pos[1], pos[2]);
                 stab_low();
@@ -100,7 +100,7 @@ module base(thickness){
           for(pos = [
               pos_list[0],
               pos_list[3],
-//              pos_list[7],
+              pos_list[7],
 //              pos_list[8],
             ]){
             lower_bracket(pos[0], pos[1], pos[2]);
@@ -112,13 +112,14 @@ module base(thickness){
               pos_list[2],
               pos_list[6],
 //              pos_list[8],
-//              pos_list[9],
+//          pos_list[9],
             ]){
             lower_bracket(pos[0], pos[1], pos[2]);
                                 
 
           }
         }
+
       }
   }
 }
@@ -142,8 +143,8 @@ module base_higher(thickness){
         hull(){
           for(pos = [
               pos_list[0],
-              pos_list[5],
-              pos_list[6],
+//              pos_list[5],
+//              pos_list[6],
               pos_list[2],
 //              pos_list[7],
             ]){

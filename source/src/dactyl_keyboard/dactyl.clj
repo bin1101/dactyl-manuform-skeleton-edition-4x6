@@ -14,7 +14,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (def nrows 4)
-(def ncols 5)
+(def ncols 6)
 
 (def α (/ π 12))                        ; curvature of the columns
 (def β (/ π 36))                        ; curvature of the rows
@@ -84,7 +84,7 @@
         side-nub (->> (binding [*fn* 30] (cylinder 0.95 2.75))
                       (rotate (/ π 2) [1 0 0])
                       (translate [(+ (/ keyswitch-width 2)) 0 3.5])
-                      (hull (->> 
+                      (hull (->>
                       (cube 1.5 2.75 4)
                       (translate [(+ (/ 1.5 2) (/ keyswitch-width 2))
                                              0
@@ -260,7 +260,7 @@
          (concat
           ;; Row connections
 ;         (for [column (range 0 (dec ncols))
-         (for [column [0 2 3]
+         (for [column [0 2 3 4]
                row (range 0 lastrow)]
            (triangle-hulls
             (key-place (inc column) row web-post-tl)
@@ -279,14 +279,14 @@
 
           ;; Diagonal connections
 ;         (for [column (range 0 (dec ncols))
-         (for [column [0 2 3]
+         (for [column [0 2 3 4]
                row (range 0 cornerrow)]
            (triangle-hulls
             (key-place column row web-post-br)
             (key-place column (inc row) web-post-tr)
             (key-place (inc column) row web-post-bl)
             (key-place (inc column) (inc row) web-post-tl)))
-             
+
              )))
 
 ;;;;;;;;;;;;
@@ -710,7 +710,7 @@
         (key-place column row (translate [0 0 0] (wire-post -1 6)))
         (key-place column row (translate [5 0 0] (wire-post  1 0)))))))
 
-      
+
 
 (def model-right (difference
                    (union
@@ -741,28 +741,28 @@
 ; (spit "things/left.scad"
 ;       (write-scad (mirror [-1 0 0] model-right)))
 
-; (spit "things/right-test.scad"
-;       (write-scad
-;                    (union
-;                     key-holes
-;                     connectors
-;                     thumb
-;                     thumb-connectors
-;                     case-walls
-;                     thumbcaps
-;                     caps
-;                     teensy-holder
-;                     ; rj9-holder
-;                     ; usb-holder-hole
-;                     ; usb-holder-hole
-;                     ; ; teensy-holder-hole
-;                     ;             screw-insert-outers
-;                     ;             teensy-screw-insert-holes
-;                     ;             teensy-screw-insert-outers
-;                     ;             usb-cutout
-;                     ;             rj9-space
-;                                 ; wire-posts
-;                   )))
+(spit "things/right-test.scad"
+       (write-scad
+                    (union
+                     key-holes
+                     connectors
+                     thumb
+                     thumb-connectors
+                     case-walls
+                     thumbcaps
+                     caps
+                     teensy-holder
+                      rj9-holder
+                      usb-holder-hole
+                      usb-holder-hole
+                       ;teensy-holder-hole
+                                  screw-insert-outers
+                                  ;teensy-screw-insert-holes
+                                  ;teensy-screw-insert-outers
+                                  ;usb-cutout
+                                  rj9-space
+                                  wire-posts
+                   )))
 
 ; (spit "things/right-plate.scad"
 ;       (write-scad
